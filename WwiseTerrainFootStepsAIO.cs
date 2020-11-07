@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WwiseTerrainFootSteps : MonoBehaviour
+public class WwiseTerrainFootStepsAIO : MonoBehaviour
 {
     /* This is a script that attached to the player controller
     lets you the detect the surfaces where the player is walking when they
@@ -10,7 +10,7 @@ public class WwiseTerrainFootSteps : MonoBehaviour
     and Switch. Fully customizable so it can be adapted to any Wwise session.
     The script is in progress so any advice will be useful.
 
-    THIS VERSION NEEDS A CHARACTER CONTROLLER TO WORK */
+    THIS VERSION NEEDS A RIGIDBODY TO WORK*/
 
     //Variables to CheckIfGrounded
     bool isGrounded;
@@ -28,7 +28,7 @@ public class WwiseTerrainFootSteps : MonoBehaviour
     float valor4;
 
     //Variables to TriggerFootsteps
-    CharacterController character;
+    Rigidbody character;
     float currentSpeed;
     bool walking;
     float distanceCovered;
@@ -50,7 +50,7 @@ public class WwiseTerrainFootSteps : MonoBehaviour
     {
         terrainObject = Terrain.activeTerrain;
         playerTransform = gameObject.GetComponent<Transform>();
-        character = gameObject.GetComponent<CharacterController>();
+        character = gameObject.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -74,7 +74,7 @@ public class WwiseTerrainFootSteps : MonoBehaviour
     }
 
     // Functions to CheckIfGrounded
-    bool PlayerGrounded() // NOTE that the Player Controller needs a characterController for this function to work
+    bool PlayerGrounded()
     {
         return Physics.Raycast(transform.position, Vector3.down, out hit, GetComponent<Collider>().bounds.extents.y + 0.5f);
     }
