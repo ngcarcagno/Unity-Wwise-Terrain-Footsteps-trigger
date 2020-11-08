@@ -42,6 +42,8 @@ public class WwiseTerrainFootSteps : MonoBehaviour
     public string fsSwitchState2;
     public string fsSwitchState3;
     public string fsSwitchState4;
+    [Header("Default Wwise Switch State(Non Terrain surfaces)")]
+    public string fsSwitchDefault;
     [Header("Rate of footsteps per unit")]
     public float fsRate = 0.5f;
 
@@ -163,6 +165,7 @@ public class WwiseTerrainFootSteps : MonoBehaviour
         }
         else
         {
+            AkSoundEngine.SetSwitch(fsSwitchGroup, fsSwitchDefault, gameObject);
             AkSoundEngine.PostEvent(fsEventName, gameObject);
         }
     }

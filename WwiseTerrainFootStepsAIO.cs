@@ -8,9 +8,7 @@ public class WwiseTerrainFootStepsAIO : MonoBehaviour
     lets you the detect the surfaces where the player is walking when they
     where created using terrain object and call to the respective Wwise Event
     and Switch. Fully customizable so it can be adapted to any Wwise session.
-    The script is in progress so any advice will be useful.
-
-    THIS VERSION NEEDS A RIGIDBODY TO WORK*/
+    The script is in progress so any advice will be useful. */
 
     //Variables to CheckIfGrounded
     bool isGrounded;
@@ -22,10 +20,10 @@ public class WwiseTerrainFootStepsAIO : MonoBehaviour
     Terrain terrainObject;
     int posX;
     int posZ;
-    float valor1;
-    float valor2;
-    float valor3;
-    float valor4;
+    public float valor1;
+    public float valor2;
+    public float valor3;
+    public float valor4;
 
     //Variables to TriggerFootsteps
     Rigidbody character;
@@ -42,6 +40,8 @@ public class WwiseTerrainFootStepsAIO : MonoBehaviour
     public string fsSwitchState2;
     public string fsSwitchState3;
     public string fsSwitchState4;
+    [Header("Default Wwise Switch State(Non Terrain surfaces)")]
+    public string fsSwitchDefault;
     [Header("Rate of footsteps per unit")]
     public float fsRate = 0.5f;
 
@@ -74,7 +74,7 @@ public class WwiseTerrainFootStepsAIO : MonoBehaviour
     }
 
     // Functions to CheckIfGrounded
-    bool PlayerGrounded()
+    bool PlayerGrounded() // NOTE that the Player Controller needs a collider for this function to work
     {
         return Physics.Raycast(transform.position, Vector3.down, out hit, GetComponent<Collider>().bounds.extents.y + 0.5f);
     }
@@ -163,6 +163,7 @@ public class WwiseTerrainFootStepsAIO : MonoBehaviour
         }
         else
         {
+            AkSoundEngine.SetSwitch(fsSwitchGroup, fsSwitchDefault, gameObject);
             AkSoundEngine.PostEvent(fsEventName, gameObject);
         }
     }
