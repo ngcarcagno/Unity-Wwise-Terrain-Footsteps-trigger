@@ -10,7 +10,7 @@ public class WwiseTerrainFootSteps : MonoBehaviour
     and Switch. Fully customizable so it can be adapted to any Wwise session.
     The script is in progress so any advice will be useful.
 
-    THIS VERSION NEEDS A CHARACTER CONTROLLER TO WORK */
+    THIS VERSION NEEDS A CHARACTER CONTROLLER TO WORK  */
 
     //Variables to CheckIfGrounded
     bool isGrounded;

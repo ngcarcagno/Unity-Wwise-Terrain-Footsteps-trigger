@@ -8,7 +8,9 @@ public class WwiseTerrainFootStepsAIO : MonoBehaviour
     lets you the detect the surfaces where the player is walking when they
     where created using terrain object and call to the respective Wwise Event
     and Switch. Fully customizable so it can be adapted to any Wwise session.
-    The script is in progress so any advice will be useful. */
+    The script is in progress so any advice will be useful.
+    
+     THIS VERSION NEEDS A RIGIDBODY TO WORK*/
 
     //Variables to CheckIfGrounded
     bool isGrounded;
@@ -20,10 +22,10 @@ public class WwiseTerrainFootStepsAIO : MonoBehaviour
     Terrain terrainObject;
     int posX;
     int posZ;
-    public float valor1;
-    public float valor2;
-    public float valor3;
-    public float valor4;
+    float valor1;
+    float valor2;
+    float valor3;
+    float valor4;
 
     //Variables to TriggerFootsteps
     Rigidbody character;
